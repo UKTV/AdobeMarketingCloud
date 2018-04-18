@@ -181,8 +181,9 @@ public class MediaHeartbeatProxy extends KrollProxy implements MediaHeartbeatDel
     
     @Kroll.method
     @Kroll.setProperty
-    public void setVideoProgress(Double progress) {
-    	videoProgress = (Double)progress;
+    public synchronized void setVideoProgress(Object value) {
+    	double progress = TiConvert.toDouble(value);
+    	videoProgress = progress;
     }
     
     
@@ -194,9 +195,9 @@ public class MediaHeartbeatProxy extends KrollProxy implements MediaHeartbeatDel
     }
 
     @Override
-    public Double getCurrentPlaybackTime() {
+    public synchronized Double getCurrentPlaybackTime() {
     	
-    	log(String.format("getCurrentPlaybackTime: %f", videoProgress));
+    	log("getCurrentPlaybackTime now at: " + (double)videoProgress);
     	
         return videoProgress;
     }
