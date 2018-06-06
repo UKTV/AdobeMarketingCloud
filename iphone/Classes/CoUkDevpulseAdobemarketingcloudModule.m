@@ -111,8 +111,16 @@
     ENSURE_SINGLE_ARG_OR_NIL(args, NSDictionary);
     id isDebug = [args objectForKey:@"debugMode"];
     
+    NSString *configFile = [TiUtils stringValue:@"configFile" properties:args def:@"ADBMobileConfig.json"];
+    NSArray *fileComps = [configFile componentsSeparatedByString:@"."];
+    NSString *fileName = fileComps[0];
+    NSString *ext = @"json";
+    if (fileComps.count > 1) {
+        ext = fileComps[1];
+    }
+    
     // assumes that the config file will always be called "ADBMobileConfig.json"
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"ADBMobileConfig" ofType:@"json"];
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:fileName ofType:ext];
     [ADBMobile overrideConfigPath:filePath];
     
     [self log:[NSString stringWithFormat:@"filePath: %@", filePath]];

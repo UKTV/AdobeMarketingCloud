@@ -15,19 +15,29 @@ package co.uk.devpulse.adobemarketingcloud;
 
 import org.appcelerator.kroll.KrollModule;
 import org.appcelerator.kroll.annotations.Kroll;
-
 import org.appcelerator.titanium.TiApplication;
 import org.appcelerator.kroll.common.Log;
 import org.appcelerator.kroll.common.TiConfig;
 
 import com.adobe.mobile.*;
+
 import android.app.Activity;
+
 import org.appcelerator.kroll.KrollDict;
+
 import java.util.HashMap;
+
 import com.adobe.primetime.va.simple.*;
+
+import org.appcelerator.titanium.io.TiBaseFile;
+import org.appcelerator.titanium.io.TiFileFactory;
 import org.appcelerator.titanium.util.TiConvert;
+
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.InputStream;
 import java.io.IOException;
+
 import org.appcelerator.kroll.*;
 
 
@@ -63,16 +73,25 @@ public class AdobeMarketingCloudModule extends KrollModule
 	public void initialise(KrollDict args) {
 		TiApplication appContext = TiApplication.getInstance();
 		Activity activity = appContext.getCurrentActivity();
+		
+		
 
 		Boolean isDebug = TiConvert.toBoolean(args.get("debugMode"));
 		Config.setContext(activity.getApplicationContext()); // changed from this.getApp... to activity.getApp...
 
+		String configFile = TiConvert.toString(args.get("configFile"), "ADBMobileConfig.json");
+
+		Log.d(LCAT, "configFile: " + configFile);
+		
 		try {
-		    InputStream configInput = activity.getAssets().open("ADBMobileConfig.json");
+			String url = this.resolveUrl(null, configFile);
+			TiBaseFile file = TiFileFactory.createTitaniumFile(new String[] { url }, false);
+		    InputStream configInput = file.getInputStream();
 		    Config.overrideConfigStream(configInput);
 
 		} catch (IOException ex) {
-		    Log.e(LCAT, "Unable to find config file");
+		    Log.e(LCAT, "Unable to find config file " + configFile);
+		    ex.printStackTrace();
 		}
 
 		if (isDebug) {
