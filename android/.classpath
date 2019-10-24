@@ -12,6 +12,6 @@
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/olivier/Code/uktv/AdobeMarketingCloud/android/lib/VideoHeartbeat.jar"/>
-	<classpathentry kind="lib" path="/Users/olivier/Code/uktv/AdobeMarketingCloud/android/lib/adobeMobileLibrary-4.15.0.jar"/>
+	<classpathentry kind="lib" path="/Users/olivier/Code/uktv/AdobeMarketingCloud/android/lib/adobeMobileLibrary-4.17.10.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
