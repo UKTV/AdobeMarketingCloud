@@ -145,6 +145,25 @@
     return [ADBMobile userIdentifier];
 }
 
+
+-(void)getVisitorMarketingCloudID:(id)callback {
+    ENSURE_SINGLE_ARG(callback, KrollCallback);
+        
+    //from ADBMobile.h:
+    //ADBMobile.visitorMarketingCloudID
+    //This method can cause a blocking network call and should not be used from a UI thread.
+    
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_BACKGROUND, 0), ^{
+        
+        NSString *visitorMarketingCloudID = ADBMobile.visitorMarketingCloudID;
+        NSLog(@"visitorMarketingCloudID: %@", visitorMarketingCloudID);
+        [self _fireEventToListener:@"gotAdobeMID"
+                        withObject: @{@"visitorMarketingCloudID": visitorMarketingCloudID}
+                          listener:callback
+                        thisObject:self];
+    });
+}
+
 -(void)trackState:(id)args {
     ENSURE_SINGLE_ARG(args, NSDictionary);
     
