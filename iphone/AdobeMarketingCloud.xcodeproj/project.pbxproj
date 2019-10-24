@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		09362D18236089B2006451EE /* MediaSDK_TV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09362D16236089B1006451EE /* MediaSDK_TV.a */; };
+		09362D19236089B2006451EE /* MediaSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 09362D17236089B2006451EE /* MediaSDK.a */; };
 		24DD6CF91134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.h */; };
 		24DD6CFA1134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.m */; };
 		24DE9E1111C5FE74003F90F6 /* CoUkDevpulseAdobemarketingcloudModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* CoUkDevpulseAdobemarketingcloudModuleAssets.h */; };
@@ -35,8 +37,6 @@
 		65A027291EBC7525002667AF /* EnumHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A027281EBC7523002667AF /* EnumHelper.h */; };
 		65C89A5F1EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C89A5D1EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.h */; };
 		65C89A601EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 65C89A5E1EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.m */; };
-		65C89A651EB9C7FF000C4360 /* VideoHeartbeat_TV.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C89A631EB9C7FF000C4360 /* VideoHeartbeat_TV.a */; };
-		65C89A661EB9C7FF000C4360 /* VideoHeartbeat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65C89A641EB9C7FF000C4360 /* VideoHeartbeat.a */; };
 		65C89A6A1EB9C808000C4360 /* ADBMediaHeartbeat.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C89A671EB9C808000C4360 /* ADBMediaHeartbeat.h */; };
 		65C89A6B1EB9C808000C4360 /* ADBMediaHeartbeatConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C89A681EB9C808000C4360 /* ADBMediaHeartbeatConfig.h */; };
 		65C89A6C1EB9C808000C4360 /* ADBStandardMetadataKeys.h in Headers */ = {isa = PBXBuildFile; fileRef = 65C89A691EB9C808000C4360 /* ADBStandardMetadataKeys.h */; };
@@ -55,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		09362D16236089B1006451EE /* MediaSDK_TV.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = MediaSDK_TV.a; path = platform/MediaSDK_TV.a; sourceTree = "<group>"; };
+		09362D17236089B2006451EE /* MediaSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = MediaSDK.a; path = platform/MediaSDK.a; sourceTree = "<group>"; };
 		24DD6CF71134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoUkDevpulseAdobemarketingcloudModule.h; path = Classes/CoUkDevpulseAdobemarketingcloudModule.h; sourceTree = "<group>"; };
 		24DD6CF81134B3F500162E58 /* CoUkDevpulseAdobemarketingcloudModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoUkDevpulseAdobemarketingcloudModule.m; path = Classes/CoUkDevpulseAdobemarketingcloudModule.m; sourceTree = "<group>"; };
 		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
@@ -69,8 +71,6 @@
 		65A027281EBC7523002667AF /* EnumHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EnumHelper.h; path = Classes/EnumHelper.h; sourceTree = "<group>"; };
 		65C89A5D1EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.h; path = Classes/CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.h; sourceTree = "<group>"; };
 		65C89A5E1EB9C6C1000C4360 /* CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.m; path = Classes/CoUkDevpulseAdobemarketingcloudMediaHeartbeatProxy.m; sourceTree = "<group>"; };
-		65C89A631EB9C7FF000C4360 /* VideoHeartbeat_TV.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = VideoHeartbeat_TV.a; path = platform/VideoHeartbeat_TV.a; sourceTree = "<group>"; };
-		65C89A641EB9C7FF000C4360 /* VideoHeartbeat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = VideoHeartbeat.a; path = platform/VideoHeartbeat.a; sourceTree = "<group>"; };
 		65C89A671EB9C808000C4360 /* ADBMediaHeartbeat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADBMediaHeartbeat.h; path = platform/ADBMediaHeartbeat.h; sourceTree = "<group>"; };
 		65C89A681EB9C808000C4360 /* ADBMediaHeartbeatConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADBMediaHeartbeatConfig.h; path = platform/ADBMediaHeartbeatConfig.h; sourceTree = "<group>"; };
 		65C89A691EB9C808000C4360 /* ADBStandardMetadataKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADBStandardMetadataKeys.h; path = platform/ADBStandardMetadataKeys.h; sourceTree = "<group>"; };
@@ -87,10 +87,10 @@
 				65997BD91EAF506400F578F3 /* AdobeMobileLibrary_TV.a in Frameworks */,
 				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
 				65997BD81EAF506400F578F3 /* AdobeMobileLibrary_Extension.a in Frameworks */,
+				09362D18236089B2006451EE /* MediaSDK_TV.a in Frameworks */,
+				09362D19236089B2006451EE /* MediaSDK.a in Frameworks */,
 				65997BDA1EAF506400F578F3 /* AdobeMobileLibrary_Watch.a in Frameworks */,
-				65C89A651EB9C7FF000C4360 /* VideoHeartbeat_TV.a in Frameworks */,
 				65997BDB1EAF506400F578F3 /* AdobeMobileLibrary.a in Frameworks */,
-				65C89A661EB9C7FF000C4360 /* VideoHeartbeat.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,8 +176,8 @@
 				65C89A671EB9C808000C4360 /* ADBMediaHeartbeat.h */,
 				65C89A681EB9C808000C4360 /* ADBMediaHeartbeatConfig.h */,
 				65C89A691EB9C808000C4360 /* ADBStandardMetadataKeys.h */,
-				65C89A631EB9C7FF000C4360 /* VideoHeartbeat_TV.a */,
-				65C89A641EB9C7FF000C4360 /* VideoHeartbeat.a */,
+				09362D16236089B1006451EE /* MediaSDK_TV.a */,
+				09362D17236089B2006451EE /* MediaSDK.a */,
 			);
 			name = Heartbeat;
 			sourceTree = "<group>";
