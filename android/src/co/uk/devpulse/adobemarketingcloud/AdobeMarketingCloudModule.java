@@ -22,6 +22,7 @@ import org.appcelerator.kroll.common.TiConfig;
 import com.adobe.mobile.*;
 
 import android.app.Activity;
+import android.os.AsyncTask;
 
 import org.appcelerator.kroll.KrollDict;
 
@@ -120,6 +121,22 @@ public class AdobeMarketingCloudModule extends KrollModule
 		Config.pauseCollectingLifecycleData();
 	}
 
+	
+	@Kroll.method
+	public void getVisitorMarketingCloudID(final KrollFunction callback) {
+		AsyncTask.execute(new Runnable() {
+			   @Override
+			   public void run() {
+				// TODO Auto-generated method stub
+					String visitorMarketingCloudID = com.adobe.mobile.Visitor.getMarketingCloudId();
+					Log.d(LCAT, "visitorMarketingCloudID: " + visitorMarketingCloudID);
+					KrollDict data = new KrollDict();
+					data.put("visitorMarketingCloudID", visitorMarketingCloudID);
+					callback.call(getKrollObject(), data);
+			   }
+			});
+	}
+	
 	@Kroll.method
 	public void trackState(KrollDict args) {
 		Log.d(LCAT, "trackState called");
