@@ -19,8 +19,6 @@
 
 
 -(void)_initWithProperties:(NSDictionary *)args {
-    [self log:@"Inside _initWithProperties"];
-    
     id trackingServer = [args objectForKey:@"trackingServer"];
     id channel = [args objectForKey:@"channel"];
     id appVersion = [args objectForKey:@"appVersion"];
@@ -58,7 +56,7 @@
 
 -(NSTimeInterval)getCurrentPlaybackTime {
     NSNumber *progress = [self valueForUndefinedKey:@"videoProgress"];
-    [self log:[NSString stringWithFormat:@"progress: %f", [progress doubleValue]]];
+    //[self log:[NSString stringWithFormat:@"progress: %f", [progress doubleValue]]];
     return [progress doubleValue];
 }
 
@@ -66,14 +64,14 @@
 #pragma mark Private methods
 
 -(void)log:(NSString *)text {
-    NSLog(@"%@ %@", self, text);
+    NSLog(@"MEDIAHEARTBEAT %@", text);
 }
 
 
 #pragma mark Public API
 
 -(void)trackSessionStart:(id)args {
-    [self log:@"Inside trackSessionStart"];
+    [self log:@"trackSessionStart"];
     ENSURE_SINGLE_ARG(args, NSMutableDictionary)
     
     id basic = [args objectForKey:@"basic"];
@@ -100,46 +98,41 @@
     
     [mediaObject setValue:metadata forKey:ADBMediaObjectKeyStandardVideoMetadata];
     [_mediaHeartbeat trackSessionStart:mediaObject data:custom];
-    
-    [self log:@"Finished calling trackSessionStart"];
 }
 
 -(void)trackSessionEnd:(id)args {
-    [self log:@"Inside trackSessionEnd"];
+    [self log:@"trackSessionEnd"];
     [_mediaHeartbeat trackSessionEnd];
 }
 
 -(void)onPlay:(id)args {
-    [self log:@"Inside onPlay"];
-    NSLog(@"_mediaHeartbeat: %@", _mediaHeartbeat);
+    [self log:@"trackPlay"];
     [_mediaHeartbeat trackPlay];
-    
-    [self log:@"Finished calling onPlay"];
 }
 
 -(void)onStop:(id)args {
-    [self log:@"Inside onStop"];
+    [self log:@"trackPause"];
     [_mediaHeartbeat trackPause];
 }
 
 -(void)onSeekStart:(id)args {
-    [self log:@"Inside onSeekStart"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventSeekStart"];
     [_mediaHeartbeat trackEvent:ADBMediaHeartbeatEventSeekStart mediaObject:nil data:nil];
 }
 
 -(void)onSeekComplete:(id)args {
-    [self log:@"Inside onSeekComplete"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventSeekComplete"];
     [_mediaHeartbeat trackEvent:ADBMediaHeartbeatEventSeekComplete mediaObject:nil data:nil];
 }
 
 -(void)onComplete:(id)args {
-    [self log:@"Inside onComplete"];
+    [self log:@"trackComplete"];
     [_mediaHeartbeat trackComplete];
 }
 
 
 -(void)onAdBreakStart:(id)args {
-    [self log:@"Inside onAdBreakStart"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventAdBreakStart"];
     ENSURE_SINGLE_ARG(args, NSDictionary)
     
     id type = [args objectForKey:@"name"]; // e.g. "preroll", "midroll", "postroll"
@@ -160,12 +153,12 @@
 
 
 -(void)onAdBreakEnd:(id)args {
-    [self log:@"Inside onAdBreakEnd"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventAdBreakComplete"];
     [_mediaHeartbeat trackEvent:ADBMediaHeartbeatEventAdBreakComplete mediaObject:nil data:nil];
 }
 
 -(void)onAdStart:(id)args {
-    [self log:@"Inside onAdStart"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventAdStart"];
     
     ENSURE_SINGLE_ARG(args, NSDictionary)
     id name = [args objectForKey:@"name"];
@@ -195,12 +188,12 @@
 }
 
 -(void)onAdComplete:(id)args {
-    [self log:@"Inside onAdComplete"];
+    [self log:@"trackEvent:ADBMediaHeartbeatEventAdComplete"];
     [_mediaHeartbeat trackEvent:ADBMediaHeartbeatEventAdComplete mediaObject:nil data:nil];
 }
 
 -(void)onError:(id)args {
-    [self log:@"Inside onError"];
+    [self log:@"trackError"];
     ENSURE_SINGLE_ARG(args, NSString)
     
     [_mediaHeartbeat trackError:args];
